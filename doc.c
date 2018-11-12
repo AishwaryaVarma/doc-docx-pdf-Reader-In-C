@@ -7,13 +7,14 @@ int main()
 {
 	char *ch="s";
 	char df;
-	//char text;
+	
+	///char text;
 	long unsigned int offset,i;
 	offset = 2561;
 
 	FILE *fileptr;
 	char *buffer,*text;
-	long filelen;
+	long filelength;
 	int count;
 	count=0;
 	fileptr = fopen("file.doc", "rb");  // Open the file in binary mode
@@ -23,7 +24,7 @@ int main()
 	filelen =filelen-2560;
 	buffer = (char *)malloc((filelen+1)*sizeof(char)); // Enough memory for file + \0
 	fseek(fileptr, 2561, SEEK_CUR);
-	fread(buffer, filelen, 1, fileptr); // Read in the entire file
+	fread(buffer, filelength, 1, fileptr); // Read in the entire file
 	fclose(fileptr); // Close the file
 	for ( i = 0; i < strlen(buffer); ++i)
 	{
